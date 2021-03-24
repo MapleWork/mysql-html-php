@@ -1,0 +1,24 @@
+<!DOCTYPE html>  
+<html>
+    <head>
+	    <meta charset="utf-8">
+        <!-- Load d3.js -->
+        <script src="C:/d3js/org/d3.v6.min.js" ></script>
+        <script src="C:/d3js/others/plotly-latest.min.js"></script>  
+    </head>
+    <body>
+        <div id="mydiv"></div>
+    </body>
+</html>
+<script>
+    var data = [{
+        values: [4, 5, 2],
+        labels: ['臺北', '臺中', '臺南' ],
+        type: 'pie'
+    }];
+    var frame = {
+        height: 500,
+        width: 500};
+        //使用Plotly畫出圓餅圖。
+    Plotly.newPlot('mydiv', data, frame);
+</script>
