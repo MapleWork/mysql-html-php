@@ -1,0 +1,35 @@
+<html>
+ <head>
+ </head>
+ <body>
+	 <form>
+		  <select name="users" onchange="showUser(this.value)">
+			  <option value="">Select a student ID:</option>
+			  <option value="1">IE01</option>
+			  <option value="2">IE02</option>
+			  <option value="3">IM01</option>
+			  <option value="4">IM02</option>
+		  </select>
+	 </form>
+ <br>
+ <div id="txtHint"><b>Student infomation will be listed here...</b></div>
+ 
+   <script>
+	   function showUser(str) {
+		  if (str == "") {
+			document.getElementById("txtHint").innerHTML = "";
+			return;
+		  } else {
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+			  if (this.readyState == 4 && this.status == 200) {
+				document.getElementById("txtHint").innerHTML = this.responseText;
+			  }
+			};
+			xmlhttp.open("GET","ksu_ajax_db1.php?q="+str,true);
+			xmlhttp.send();
+		  }
+		}
+   </script>
+ </body>
+</html>
